@@ -1,0 +1,24 @@
+graph ChenER {
+  graph [layout=neato, overlap=false, splines=true, bgcolor="white", pad="0.4", label="ENTITY–RELATIONSHIP DIAGRAM – ONLINE FOOD ORDERING SYSTEM", labelloc=t, fontsize=20, fontname="Arial"];
+  node [fontname="Arial", fontsize=10, style=filled, fillcolor="#e8f5e9", color="#287a45", penwidth=1.5];
+  edge [fontname="Arial", fontsize=9, color="#475569", penwidth=1.2];
+  Customer [shape=box, pos="0,2!", label="CUSTOMER", width=1.5, height=.55];
+  FoodOrder [shape=box, pos="4,2!", label="ORDER", width=1.4, height=.55];
+  OrderItem [shape=box, pos="8,2!", label="ORDER ITEM", width=1.55, height=.55];
+  MenuItem [shape=box, pos="12,2!", label="MENU ITEM", width=1.5, height=.55];
+  Places [shape=diamond, style=filled, fillcolor="#fff2cc", color="#b7791f", pos="2,2!", label="PLACES", width=1.1, height=.65];
+  Has [shape=diamond, style=filled, fillcolor="#fff2cc", color="#b7791f", pos="6,2!", label="CONTAINS", width=1.25, height=.65];
+  Selects [shape=diamond, style=filled, fillcolor="#fff2cc", color="#b7791f", pos="10,2!", label="REFERS TO", width=1.25, height=.65];
+  Customer -- Places [label="1", dir=none]; Places -- FoodOrder [label="N", dir=none];
+  FoodOrder -- Has [label="1", dir=none]; Has -- OrderItem [label="N", dir=none];
+  OrderItem -- Selects [label="N", dir=none]; Selects -- MenuItem [label="1", dir=none];
+  node [shape=ellipse, style=filled, fillcolor="#fce7f3", color="#be185d", fontsize=9, width=1.35, height=.42];
+  c_id [label="customer_id\n(PK)", pos="-1,4!"]; c_name [label="customer_name", pos="0,4.8!"]; c_phone [label="phone", pos="1.2,4!"]; c_email [label="email", pos="-1,0!"]; c_address [label="address", pos="0, -.8!"]; c_created [label="created_at", pos="-1.1,-.8!"];
+  o_id [label="order_id\n(PK)", pos="3,4!"]; o_date [label="order_date", pos="4,4.8!"]; o_total [label="total_amount", pos="5,4!"]; o_status [label="status", pos="4,-.8!"]; o_fk [label="customer_id (FK)", pos="2.8,0!"];
+  oi_id [label="order_item_id\n(PK)", pos="7,4!"]; oi_qty [label="quantity", pos="8,4.8!"]; oi_unit [label="unit_price", pos="9,4!"]; oi_line [label="line_total", pos="8,-.8!"]; oi_fk [label="order_id (FK)", pos="6.8,0!"]; oi_itemfk [label="item_id (FK)", pos="9.2,-.8!"];
+  m_id [label="item_id\n(PK)", pos="11,4!"]; m_name [label="item_name", pos="12,4.8!"]; m_cat [label="category", pos="13,4!"]; m_price [label="price", pos="12,-.8!"]; m_avail [label="available", pos="13,-.0!"];
+  Customer -- c_id [dir=none]; Customer -- c_name [dir=none]; Customer -- c_phone [dir=none]; Customer -- c_email [dir=none]; Customer -- c_address [dir=none]; Customer -- c_created [dir=none];
+  FoodOrder -- o_id [dir=none]; FoodOrder -- o_date [dir=none]; FoodOrder -- o_total [dir=none]; FoodOrder -- o_status [dir=none]; FoodOrder -- o_fk [dir=none];
+  OrderItem -- oi_id [dir=none]; OrderItem -- oi_qty [dir=none]; OrderItem -- oi_unit [dir=none]; OrderItem -- oi_line [dir=none]; OrderItem -- oi_fk [dir=none]; OrderItem -- oi_itemfk [dir=none];
+  MenuItem -- m_id [dir=none]; MenuItem -- m_name [dir=none]; MenuItem -- m_cat [dir=none]; MenuItem -- m_price [dir=none]; MenuItem -- m_avail [dir=none];
+}

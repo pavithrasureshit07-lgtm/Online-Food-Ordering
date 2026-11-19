@@ -1,0 +1,16 @@
+digraph UMLClass {
+  graph [rankdir=LR, bgcolor="white", pad="0.35", nodesep="0.55", ranksep="0.85", splines=ortho, fontname="Arial", label="UML CLASS DIAGRAM – ONLINE FOOD ORDERING SYSTEM", labelloc=t, fontsize=20];
+  node [shape=plain, fontname="Arial"];
+  edge [fontname="Arial", fontsize=10, color="#374151", arrowsize=0.8];
+  Customer [label=< <TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="7" COLOR="#2563eb"><TR><TD BGCOLOR="#dbeafe"><B>&lt;&lt;entity&gt;&gt;<BR/>Customer</B></TD></TR><TR><TD ALIGN="LEFT">- customerId: int<BR ALIGN="LEFT"/>- customerName: String<BR ALIGN="LEFT"/>- phone: String<BR ALIGN="LEFT"/>- email: String<BR ALIGN="LEFT"/>- address: String</TD></TR><TR><TD ALIGN="LEFT">+ addCustomer()<BR ALIGN="LEFT"/>+ listCustomers()<BR ALIGN="LEFT"/>+ viewOrders()</TD></TR></TABLE> >];
+  MenuItem [label=< <TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="7" COLOR="#2563eb"><TR><TD BGCOLOR="#dbeafe"><B>&lt;&lt;entity&gt;&gt;<BR/>MenuItem</B></TD></TR><TR><TD ALIGN="LEFT">- itemId: int<BR ALIGN="LEFT"/>- itemName: String<BR ALIGN="LEFT"/>- category: String<BR ALIGN="LEFT"/>- price: decimal<BR ALIGN="LEFT"/>- available: boolean</TD></TR><TR><TD ALIGN="LEFT">+ addMenuItem()<BR ALIGN="LEFT"/>+ viewMenu()<BR ALIGN="LEFT"/>+ changeAvailability()</TD></TR></TABLE> >];
+  FoodOrder [label=< <TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="7" COLOR="#2563eb"><TR><TD BGCOLOR="#dbeafe"><B>&lt;&lt;entity&gt;&gt;<BR/>FoodOrder</B></TD></TR><TR><TD ALIGN="LEFT">- orderId: int<BR ALIGN="LEFT"/>- orderDate: Timestamp<BR ALIGN="LEFT"/>- totalAmount: decimal<BR ALIGN="LEFT"/>- status: OrderStatus</TD></TR><TR><TD ALIGN="LEFT">+ placeOrder()<BR ALIGN="LEFT"/>+ calculateTotal()<BR ALIGN="LEFT"/>+ updateStatus()<BR ALIGN="LEFT"/>+ dailySales()</TD></TR></TABLE> >];
+  OrderItem [label=< <TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="7" COLOR="#2563eb"><TR><TD BGCOLOR="#dbeafe"><B>&lt;&lt;entity&gt;&gt;<BR/>OrderItem</B></TD></TR><TR><TD ALIGN="LEFT">- orderItemId: int<BR ALIGN="LEFT"/>- quantity: int<BR ALIGN="LEFT"/>- unitPrice: decimal<BR ALIGN="LEFT"/>- lineTotal: decimal</TD></TR><TR><TD ALIGN="LEFT">+ calculateLineTotal()</TD></TR></TABLE> >];
+  DB [label=< <TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="7" COLOR="#0f766e"><TR><TD BGCOLOR="#ccfbf1"><B>&lt;&lt;database&gt;&gt;<BR/>MySQL Database</B></TD></TR><TR><TD ALIGN="LEFT">+ customers<BR ALIGN="LEFT"/>+ menu_items<BR ALIGN="LEFT"/>+ orders<BR ALIGN="LEFT"/>+ order_items</TD></TR></TABLE> >];
+  Java [label=< <TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="7" COLOR="#7c3aed"><TR><TD BGCOLOR="#ede9fe"><B>&lt;&lt;control&gt;&gt;<BR/>FoodOrderingApplication</B></TD></TR><TR><TD ALIGN="LEFT">+ runMenu()<BR ALIGN="LEFT"/>+ processUserChoice()<BR ALIGN="LEFT"/>+ validateInput()</TD></TR></TABLE> >];
+  Customer -> FoodOrder [dir=none, label="places 1 to 0..*", taillabel="1", headlabel="0..*", labeldistance=2];
+  FoodOrder -> OrderItem [dir=both, arrowtail=diamond, arrowhead=none, label="contains 1..*", taillabel="1", headlabel="1..*", labeldistance=2];
+  MenuItem -> OrderItem [dir=none, label="selected as 1", taillabel="1", headlabel="0..*", labeldistance=2];
+  Java -> DB [style=dashed, arrowhead=vee, label="JDBC dependency"];
+  {rank=same; Customer; MenuItem}
+}

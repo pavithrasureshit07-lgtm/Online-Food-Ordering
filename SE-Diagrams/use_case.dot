@@ -1,0 +1,24 @@
+digraph UseCase {
+  graph [rankdir=LR, bgcolor="white", pad="0.35", nodesep="0.45", ranksep="0.75", splines=true, fontname="Arial", label="USE CASE DIAGRAM – ONLINE FOOD ORDERING SYSTEM", labelloc=t, fontsize=20];
+  node [fontname="Arial", fontsize=10];
+  edge [fontname="Arial", fontsize=9, color="#475569", penwidth=1.2, arrowsize=.75];
+  Staff [shape=plaintext, label="Restaurant Staff", fontsize=12];
+  Manager [shape=plaintext, label="Restaurant Manager", fontsize=12];
+  subgraph cluster_system {
+    label="<<Subsystem>>\nOnline Food Ordering System"; style="rounded,filled"; color="#3b82f6"; fillcolor="#eff6ff"; penwidth=1.5; margin=22;
+    AddCustomer [shape=ellipse, style=filled, fillcolor="#dbeafe", label="Register Customer"];
+    ListCustomer [shape=ellipse, style=filled, fillcolor="#dbeafe", label="List Customers"];
+    ManageMenu [shape=ellipse, style=filled, fillcolor="#dbeafe", label="Manage Menu Items"];
+    ViewMenu [shape=ellipse, style=filled, fillcolor="#dbeafe", label="View Menu"];
+    PlaceOrder [shape=ellipse, style=filled, fillcolor="#dbeafe", label="Place Food Order"];
+    Validate [shape=ellipse, style=filled, fillcolor="#fef3c7", label="Validate Customer &\nItem Availability"];
+    Calculate [shape=ellipse, style=filled, fillcolor="#fef3c7", label="Calculate Order Total"];
+    UpdateStatus [shape=ellipse, style=filled, fillcolor="#dbeafe", label="Update Order Status"];
+    ViewOrders [shape=ellipse, style=filled, fillcolor="#dbeafe", label="View Customer Orders"];
+    Sales [shape=ellipse, style=filled, fillcolor="#dbeafe", label="View Daily Sales Report"];
+  }
+  Staff -> AddCustomer [dir=none]; Staff -> ListCustomer [dir=none]; Staff -> ManageMenu [dir=none]; Staff -> ViewMenu [dir=none]; Staff -> PlaceOrder [dir=none]; Staff -> UpdateStatus [dir=none]; Staff -> ViewOrders [dir=none];
+  Manager -> Sales [dir=none]; Manager -> ViewOrders [dir=none];
+  PlaceOrder -> Validate [style=dashed, label="<<include>>", arrowhead=vee];
+  PlaceOrder -> Calculate [style=dashed, label="<<include>>", arrowhead=vee];
+}

@@ -1,0 +1,23 @@
+# Java / Maven
+Java-Console/target/
+*.class
+
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+
+# Secrets and environment files
+.env
+.env.*
+!.env.example
+
+# IDE files
+.vscode/
+.idea/
+
+# Operating system
+.DS_Store
+Thumbs.db
+FDS-Python/output/*.csv

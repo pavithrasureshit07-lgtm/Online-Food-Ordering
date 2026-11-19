@@ -1,0 +1,25 @@
+Scenario 12 project package – corrected diagram edition
+-------------------------------------------------------
+Project: Online Food Ordering and Restaurant Sales Analysis System
+
+Preserved from the original console-ready package:
+- Java console application and Maven project files
+- MySQL schema and sample data
+- Python FDS extraction/preprocessing scripts
+- Python visualization script and requirements
+- SRS, test cases, user guide, and root README
+
+Updated:
+- Replaced all four SE diagrams using the four visual conventions in the supplied PDF:
+  1. UML class diagram
+  2. Chen-style entity-relationship diagram
+  3. Layered system architecture
+  4. UML use-case diagram
+- Each diagram now includes editable Graphviz .dot source, scalable .svg, and .png preview.
+- Diagram entities and relationships align with the existing Customer, MenuItem, Order, and OrderItem data model.
+
+Validation:
+- All four Graphviz DOT sources rendered successfully to SVG and PNG.
+- ZIP archive integrity checked after packaging.
+- Maven build was not run in this generation environment because Maven is not installed here.
+- Run `mvn clean package` in Java-Console on the target machine and execute the documented test cases before submission.
