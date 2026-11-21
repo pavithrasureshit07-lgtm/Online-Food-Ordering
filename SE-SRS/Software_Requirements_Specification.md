@@ -2,13 +2,13 @@
 
 ## Scenario 12 – Online Food Ordering and Restaurant Sales Analysis System
 
-### 1. Purpose
+PURPOSE
 
 The purpose of this project is to develop an Online Food Ordering and Restaurant Sales Analysis System using Java, MySQL, and Python.
 
 The system manages restaurant customers, menu items, food orders, order status, and sales information through a Java console application connected to a MySQL database.
 
-### 2. Scope
+SCOPE
 
 The application provides the following features:
 
@@ -27,38 +27,96 @@ The database used by the application is `restaurant_db`.
 
 Python retrieves stored records from MySQL and generates visual reports using Pandas and Matplotlib.
 
-### 3. Functional Requirements
+FUNCTIONAL AND NON FUNCTIONAL REQUIREMENTS
 
-- **FR1:** The system shall allow users to add and list customers with contact information.
-- **FR2:** The system shall allow users to add menu items with item ID, name, category, price, and availability.
-- **FR3:** The system shall allow users to view menu items and update their availability.
-- **FR4:** The system shall allow users to create orders containing multiple menu items and quantities.
-- **FR5:** The system shall automatically calculate order totals using stored menu item prices.
-- **FR6:** The system shall support the order statuses Placed, Preparing, Completed, and Cancelled.
-- **FR7:** The system shall allow users to view orders belonging to a particular customer.
-- **FR8:** The system shall generate daily restaurant sales summaries.
-- **FR9:** The Python module shall retrieve joined order, customer, and menu information from the MySQL database.
-- **FR10:** The Python module shall preprocess retrieved data and export it as a CSV file.
-- **FR11:** The visualization module shall generate daily sales, popular menu item, and order status charts.
+1. Customer Management Module
+Functional Requirements
+ID	Requirement
+FR01	The system shall allow users to add new customer details.
+FR02	The system shall store customer name, phone number and email address.
+FR03	The system shall display the list of registered customers.
+FR04	The system shall generate a unique customer ID for each customer.
+FR05	The system shall allow the system to retrieve customer details using the customer ID.
 
-### 4. Non-Functional Requirements
+Non-Functional Requirements
+ID	Requirement
+NFR01	Customer details shall be stored securely in the database.
+NFR02	The system shall respond to customer-related operations quickly.
+NFR03	The system shall maintain accurate customer information.
+NFR04	The system shall be easy to use and understand.
 
-- The application shall use Java 17 or later.
-- Maven shall be used for project building and dependency management.
-- JDBC shall be used for Java and MySQL connectivity.
-- MySQL shall be used for database storage.
-- Python shall be used for data retrieval and analysis.
-- Pandas shall be used for data preprocessing.
-- Matplotlib shall be used for data visualization.
-- The system shall validate positive order quantities.
-- SQL queries shall use prepared statements where applicable.
-- Database transactions shall be used when placing orders.
-- Database credentials shall be maintained using environment variables.
-- The application shall provide clear console messages and error handling.
-- Database relationships shall be maintained using primary keys and foreign keys.
+2. Menu Management Module
+Functional Requirements
+ID	Requirement
+FR06	The system shall allow users to add new food items.
+FR07	The system shall store food name, category and price.
+FR08	The system shall display all available food items.
+FR09	The system shall allow users to change food item availability.
+FR10	The system shall maintain the availability status of each food item.
 
-### 5. Data Entities
+Non-Functional Requirements
+ID	Requirement
+NFR05	Menu details shall be stored accurately in the database.
+NFR06	Menu information shall be displayed within a reasonable response time.
+NFR07	The system shall provide a simple menu interface.
+NFR08	The system shall maintain consistency when menu details are updated.
 
+3. Order Management Module
+Functional Requirements
+ID	Requirement
+FR11	The system shall allow customers to place food orders using their customer ID.
+FR12	The system shall allow users to select food items and enter quantities.
+FR13	The system shall automatically calculate the total order amount.
+FR14	The system shall generate a unique order ID for every order.
+FR15	The system shall allow users to update the order status.
+FR16	The system shall display orders placed by a particular customer.
+FR17	The system shall prevent ordering of unavailable food items.
+
+Non-Functional Requirements
+ID	Requirement
+NFR09	Order details shall be stored reliably in the database.
+NFR10	The total amount shall be calculated accurately.
+NFR11	Order operations shall be completed within a reasonable time.
+NFR12	The system shall maintain data consistency between customers, orders and menu items.
+NFR13	The system shall handle invalid order inputs appropriately.
+
+4. Sales Analysis Module
+Functional Requirements
+ID	Requirement
+FR18	The system shall retrieve order data from the MySQL database.
+FR19	The system shall preprocess the retrieved sales data using Python.
+FR20	The system shall calculate daily sales amounts.
+FR21	The system shall calculate the number of orders received.
+FR22	The system shall identify popular food items based on order data.
+FR23	The system shall save the processed data as a CSV file.
+
+Non-Functional Requirements
+ID	Requirement
+NFR14	Sales calculations shall produce accurate results.
+NFR15	The system shall process sales data efficiently.
+NFR16	The system shall handle missing or invalid data appropriately.
+NFR17	The processed data shall be stored in an organized format.
+NFR18	The Python program shall be maintainable and reusable.
+
+5. Data Visualization Module
+Functional Requirements
+ID	Requirement
+FR24	The system shall generate a daily sales chart.
+FR25	The system shall generate a popular food items chart.
+FR26	The system shall generate an order status chart.
+FR27	The system shall display sales information graphically.
+FR28	The system shall save generated charts as image files.
+
+Non-Functional Requirements
+ID	Requirement
+NFR19	Charts shall be clear and easy to understand.
+NFR20	Visualizations shall represent the processed data accurately.
+NFR21	Charts shall be generated within a reasonable time.
+NFR22	The charts shall use readable titles, labels and legends wherever required.
+NFR23	The visualization program shall be easy to maintain and modify.
+suitable for your Software Engineering SRS documentat
+
+DATA ENTITIES
 The main entities used in the system are:
 
 **1. Customer**
@@ -89,7 +147,7 @@ The main entities used in the system are:
 - Unit Price
 - Line Total
 
-### 6. Database Requirements
+DATABASE REQUIREMENTS
 
 The system uses the MySQL database named `restaurant_db`.
 
@@ -103,19 +161,3 @@ The database contains the following tables:
 
 Primary keys and foreign keys are used to maintain relationships between the tables. Constraints help maintain data accuracy and consistency.
 
-### 7. Assumptions and Dependencies
-
-- A local MySQL Server must be available.
-- MySQL Workbench is used for database administration.
-- Java JDK 17 or later must be installed.
-- Maven must be configured to build the Java application.
-- Python and the required libraries must be installed.
-- Database connection details must be configured using environment variables.
-- Python FDS scripts are executed separately after data has been entered into the database.
-- The visualization program requires the processed CSV file generated by the Python retrieval program.
-
-### 8. Expected Outcome
-
-The expected outcome is a working console-based restaurant management application integrated with a MySQL database and Python-based data analysis.
-
-The system enables restaurant order management and produces useful visual reports about daily sales, popular menu items, and order status distribution.
